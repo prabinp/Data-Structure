@@ -1,4 +1,3 @@
-/* mudit.khetan@gmail.com */
 
 /* This is a single link list insertion at the last program implemented in c
  * Author - Prabin Pramanik
