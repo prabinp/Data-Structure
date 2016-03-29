@@ -1,3 +1,6 @@
+/* This is basic list program using array and implemented in c
+ */
+ 
 #include<stdio.h>
 
 typedef struct ArrayBasedList {
