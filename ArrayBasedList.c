@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-typedef struct list {
+typedef struct ArrayBasedList {
 	int size;
 	int array[10];
 	int length;
