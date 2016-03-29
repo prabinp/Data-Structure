@@ -1,4 +1,4 @@
-/* This is basic list program using array and implemented in c
+/* This is a array list program implemented in c
  */
  
 #include<stdio.h>
