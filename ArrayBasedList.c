@@ -1,9 +1,10 @@
 /* This is a array list program implemented in c
+ * Operation - insertion and display
  */
  
 #include<stdio.h>
 
-typedef struct ArrayBasedList {
+typedef struct list {
 	int size;
 	int array[10];
 	int length;
