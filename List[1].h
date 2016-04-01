@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define SIZE 10
 
-typedef struct ArrayBasedList {
+typedef struct List {
 	int size;
 	int array[SIZE];
 	int length;
