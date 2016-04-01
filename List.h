@@ -1,3 +1,9 @@
+/*
+ * This header file contain the function of inserting elements display and search add this header into the program and 
+   perform the operations as required.
+ */
+
+
 #include<stdio.h>
 #define SIZE 10
 
