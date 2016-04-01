@@ -1,5 +1,9 @@
+/*
+ * This program can perform the operations like insert, display and search using the list.h header file.
+ */
+
 #include<stdio.h>
-#include"List[1].h"
+#include"List.h"
 
 
 int main(){
