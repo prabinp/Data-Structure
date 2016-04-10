@@ -3,7 +3,7 @@
  */
  
 #include<stdio.h>
-#include"ListArray1.h"
+#include"List.h"
 
 int main(){
 	
