@@ -14,9 +14,7 @@ Node *init(Node *head){
 
 
 int search(Node* head, int pos){
-	
 	int i = 0;
-	
 	if(head != NULL){
 		printf("\nSearching");
 		while(i != pos){
@@ -66,7 +64,6 @@ Node* append(Node* head, int data){
 	if(head == NULL){
 		head = temp;
 	} else {
-		
 		start = head;
 		
 		while(start->next != NULL){
@@ -120,7 +117,6 @@ Node * insertAtPosition(Node* head, int pos, int data){
 
 		start = head;
 		
-		//pos -= 1;	
 		while(i != pos){
 		
 			if(start == NULL){
@@ -339,39 +335,10 @@ Node* RemoveDuplicates(Node *head){
 				start->next = start->next->next;
 			}
 		}
-		
-		//RemoveDuplicates(head->next);
-	
-	/* //used in hackerrank
-	
-		while(start->next != NULL){
-			
-			if(start->data == start->next->data){
-		
-				if(start->next == NULL){
-					temp = head;
-					
-					while(temp->next->next != NULL){
-						temp =  temp->next;
-					}
-					
-					if(temp->next->next == NULL){
-						temp->next = NULL;
-					}
-				} else {
-					start->next = start->next->next;
-				}
-				
-			} else {
-				start = start->next;
-			}
-		}
-		*/	
 	}
 	 
 	return head;
 }
-
 
 
 int GetNode(Node *head, int positionFromTail){
@@ -405,8 +372,6 @@ void ReversePrint(Node* head){
 	
 	printf("%d\t", head->data);
 }
-
-
 
 void compare(){
 	
@@ -450,7 +415,6 @@ void compare(){
 		printf("\nLists are not equal\n");
 	}
 }
-
 
 
 int CompareLists(Node* headA, Node* headB) {
