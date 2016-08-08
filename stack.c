@@ -1,6 +1,10 @@
+/*
+ * Normal operation of stack like push pop display etc.
+ */
+ 
+ 
 #include<stdio.h>
 #include<stdlib.h>
-
 
 typedef struct stack {
 	int top;
