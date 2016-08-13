@@ -115,10 +115,6 @@ int secondBigElement(Stack *stack){
 	return A[1];
 }
 
-/*
-Stack *balancedParentheses(Stack *stack){	 
-}
-*/
 
 void printStack(Stack *stack){
 	int i;
