@@ -16,7 +16,6 @@ Node *getNode(int data){
 	return temp;
 }
 
-
 Node *insert(Node *root, int data){
 
 	Node *temp = getNode(data);
@@ -31,11 +30,13 @@ Node *insert(Node *root, int data){
 	return root;
 }
 
-void inorder(Node *root){
-	if(root != NULL){
-		inorder(root->left);
-		printf("%d\t", root->data);
-		inorder(root->right);
+void preorder(Node *root){
+	if(root == NULL){
+		return;
+	} else {
+		printf("%d ", root->data);
+		preorder(root->left);
+		preorder(root->right);
 	}
 }
 
