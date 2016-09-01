@@ -86,27 +86,6 @@ int findMax(Node *root){
 	}
 }
 
-/*
-int findHeight(Node *root){
-	
-	int lc = 0, rc = 0, height;
-	Node *leftc, *rightc;
-	
-	if(root == NULL){
-		return 0;
-	} else {
-		lc = findHeight(root->left);
-		rc = findHeight(root->right);
-		
-		if(lc > rc){
-			return (lc+1);
-		} else {
-			return (rc+1);
-		}
-	}
-}
-*/
-
 int main(){
 	
 	int value;
