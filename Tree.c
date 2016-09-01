@@ -113,8 +113,6 @@ int main(){
 	
 	printf("\nMin value - %d", findMin(root));		
 	printf("\nMax value - %d", findMax(root));
-	
-	//printf("\n%d\n", findHeight(root));
-	
+
 	return 0;
 }
