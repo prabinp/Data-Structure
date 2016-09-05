@@ -86,6 +86,24 @@ Node* findMax(Node *root){
 	}
 }
 
+void search(Node *root, int data){
+	
+	Node *current = root;
+	
+	if(current != NULL){
+		if(current->data ==  data){
+			printf("\nFound\n");
+			return;
+		} else {
+			if(data <= current->data){
+				search(current->left, data);
+			} else {
+				search(current->right, data);
+			}
+		}
+	}
+}
+
 Node *deleteNode(Node *root, int data){
 	if(root == NULL){
 		return root;
@@ -149,6 +167,11 @@ int main(){
 	printf("\nMin value - %d", min->data);		
 	printf("\nMax value - %d", max->data);
 	
+	printf("\nEnter the number to search - ");
+	scanf("%d", &value);
+	
+	search(root, value);
+
 	printf("\nEnter the data to delete - ");
 	scanf("%d", &value);
 	
