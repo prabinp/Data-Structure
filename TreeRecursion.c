@@ -86,52 +86,6 @@ Node* findMax(Node *root){
 	}
 }
 
-/*
-int findHeight(Node *root){
-	
-	int lc = 0, rc = 0, height;
-	Node *leftc, *rightc;
-	
-	if(root == NULL){
-		return 0;
-	} else {
-		lc = findHeight(root->left);
-		rc = findHeight(root->right);
-		
-		if(lc > rc){
-			return (lc+1);
-		} else {
-			return (rc+1);
-		}
-	}
-}
-
-void search(Node *root, int data){
-	
-	Node *current = root;
-	
-	if(current != NULL){
-		if(current->data ==  data){
-			printf("\nFound\n");
-		} else {
-			while(current->data != data){
-				if(data <= current->data){
-					current = current->left;
-				} else {
-					current = current->right;
-				}
-			}
-			
-			if(root->data ==  data){
-				printf("\nFound\n");
-			} else {
-				printf("\nNot Found\n");
-			}
-		}
-	}
-}
-*/
-
 Node *deleteNode(Node *root, int data){
 	if(root == NULL){
 		return root;
@@ -194,14 +148,6 @@ int main(){
 	
 	printf("\nMin value - %d", min->data);		
 	printf("\nMax value - %d", max->data);
-	
-	/*
-	printf("\nEnter the number to search - ");
-	scanf("%d", &value);
-	*/
-	//search(root, value);
-	//printf("\n%d\n", findHeight(root));
-	
 	
 	printf("\nEnter the data to delete - ");
 	scanf("%d", &value);
