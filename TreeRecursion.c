@@ -60,6 +60,26 @@ void preorder(Node *root){
 	}
 }
 
+
+void printLevelOrder(Node *root){
+	int height = findHeight(root);
+	int i;
+	for(i=1; i<=height; i++){
+		printGivenLevel(root, i);
+	}
+}
+
+void printGivenLevel(Node *root, int level){
+	if(root == NULL){
+		return;
+	} else if(level == 1){
+		printf("%d\t", root->data);
+	} else {
+		printGivenLevel(root->left, level-1);
+		printGivenLevel(root->right, level-1);
+	}
+}
+
 Node* findMin(Node *root){
 	if(root == NULL){
 		printf("\nEmpty\n");
@@ -185,6 +205,8 @@ int main(){
 	
 	printf("\nPostorder - ");
 	postorder(root);
+	
+	printLevelOrder(root);
 	
 	return 0;
 }
