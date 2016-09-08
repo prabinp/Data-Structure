@@ -60,7 +60,6 @@ void preorder(Node *root){
 	}
 }
 
-
 void printLevelOrder(Node *root){
 	int height = findHeight(root);
 	int i;
@@ -73,7 +72,7 @@ void printGivenLevel(Node *root, int level){
 	if(root == NULL){
 		return;
 	} else if(level == 1){
-		printf("%d\t", root->data);
+		printf("%d ", root->data);
 	} else {
 		printGivenLevel(root->left, level-1);
 		printGivenLevel(root->right, level-1);
@@ -103,6 +102,25 @@ Node* findMax(Node *root){
 		}
 		
 		return root;
+	}
+}
+
+int findHeight(Node *root){
+	
+	int lc = 0, rc = 0, height;
+	Node *leftc, *rightc;
+	
+	if(root == NULL){
+		return 0;
+	} else {
+		lc = findHeight(root->left);
+		rc = findHeight(root->right);
+		
+		if(lc > rc){
+			return (lc+1);
+		} else {
+			return (rc+1);
+		}
 	}
 }
 
@@ -158,55 +176,79 @@ Node *deleteNode(Node *root, int data){
 
 int main(){
 	
-	int value;
+	int value, ch;
 	Node *root = NULL, *max, *min;
 	
-	while(1) {
-		printf("\nEnter the data - ");
-		scanf("%d", &value);
+	while(1){
+		printf("\n1 - Insert the elements");
+		printf("\n2 - Preorder traversal");
+		printf("\n3 - Inorder traversal");
+		printf("\n4 - Postorder traversal");
+		printf("\n5 - Level order traversal");
+		printf("\n6 - Display the maximum element");
+		printf("\n7 - Display the minimum element");
+		printf("\n8 - Search an element");
+		printf("\n9 - Find the height of the tree");
+		printf("\n10 - Delete an element");
 		
-		if(value == 0){
+		printf("\n\nEnter your option - ");
+		scanf("%d", &ch);
+		
+		switch(ch){
+			case 1: while(1) {
+						printf("\nEnter the data - ");
+						scanf("%d", &value);
+		
+						if(value == 0){
+							break;
+						} else {
+							root = insert(root, value);
+						}
+					}
 			break;
-		} else {
-			root = insert(root, value);
+			
+			case 2:	printf("\nPreorder - ");
+					preorder(root);
+			break;
+			
+			case 3: printf("\nInorder - ");
+					inorder(root);
+			break;
+			
+			case 4: printf("\nPostorder - ");
+					postorder(root);
+			break;
+			
+			case 5: printLevelOrder(root);
+			break;
+			
+			case 6: max = findMax(root);
+					printf("\nMax value - %d", max->data);
+			break;
+			
+			case 7: min = findMin(root);
+					printf("\nMin value - %d", min->data);
+			break;
+			
+			case 8: printf("\nEnter the number to search - ");
+					scanf("%d", &value);
+	
+					search(root, value);
+			break;
+			
+			case 9: printf("\nHeight of the tree - %d\n", findHeight(root));
+			break;
+			
+			case 10: printf("\nEnter the data to delete - ");
+					 scanf("%d", &value);
+	
+					 root = deleteNode(root, value);
+			break;
+			
+			default: printf("\nERROR: Wrong input\n");		 						
+			break;				
 		}
 	}
-	
-	printf("\nPreorder - ");
-	preorder(root);
-	
-	printf("\nInorder - ");
-	inorder(root);
-	
-	printf("\nPostorder - ");
-	postorder(root);
-	
-	min = findMin(root);
-	max = findMax(root);
-	
-	printf("\nMin value - %d", min->data);		
-	printf("\nMax value - %d", max->data);
-	
-	printf("\nEnter the number to search - ");
-	scanf("%d", &value);
-	
-	search(root, value);
 
-	printf("\nEnter the data to delete - ");
-	scanf("%d", &value);
-	
-	root = deleteNode(root, value);
-	
-	printf("\nPreorder - ");
-	preorder(root);
-	
-	printf("\nInorder - ");
-	inorder(root);
-	
-	printf("\nPostorder - ");
-	postorder(root);
-	
-	printLevelOrder(root);
-	
 	return 0;
 }
