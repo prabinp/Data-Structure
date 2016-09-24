@@ -21,9 +21,9 @@ Node *insert(Node *root, int data){
 	Node *temp = getNode(data);
 	if(root == NULL){
 		root = temp;
-	} else if(data <= root->data){
+	} else if(data < root->data){
 		root->left = insert(root->left, data);
-	} else if(data >= root->data){
+	} else {
 		root->right = insert(root->right, data);
 	}
 	
