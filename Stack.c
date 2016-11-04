@@ -22,6 +22,7 @@ Stack *init(Stack *stack, int capacity){
 	return stack;
 }
 
+
 int isEmpty(Stack *stack){
 	if(stack->top == -1){
 		return 1;
