@@ -80,6 +80,7 @@ int areBalacedParentes(char exp[]){
 int main(){
 	
 	int test;
+	cout << "\nPlease Enter the number of test cases - ";
 	cin >> test;
 	
 	char arr[10000];
