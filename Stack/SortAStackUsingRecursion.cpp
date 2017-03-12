@@ -2,7 +2,7 @@
 #include<stdlib.h>
 using namespace std;
 
-typedef struct node{
+typedef struct node {
 	int data;
 	struct node *next;
 } Node;
@@ -14,97 +14,88 @@ Node *createNode(int data){
 	return temp;
 }
 
-int isEmpty(Node *head){
-	if(head == NULL) {
-		return 1;	
-	} else {
-		return 0;	
-	}
+bool isEmpty(Node *head){
+	bool flag = (head == NULL) ? true : false;
+	return flag;
 }
 
-Node *push(Node *head, int data){
+void push(Node **head, int data){
 	
 	Node *temp = createNode(data);
-	if(isEmpty(head)){
-		head = temp;
+	
+	if((*head) == NULL){
+		(*head) = temp;
 	} else {
-		temp->next = head;
-		head = temp;
+		temp->next = (*head);
+		(*head) = temp;
 	}
-	return head;
 }
 
 int pop(Node **head){
 	
 	Node *temp;
-	
 	int data;
+	
 	if(!isEmpty(*head)){
 		temp = (*head);
 		(*head) = temp->next;
-		
 		data = temp->data;
 		free(temp);
 	}
-	
 	return data;
 }
 
 int peek(Node *head){
-	return head->data;
+	if(!isEmpty(head)){
+		return head->data;
+	}
 }
 
-Node *sortedInserted(Node *head, int data){
-	
-	if(isEmpty(head) || data > peek(head)){
-		head = push(head, data);
+void sortedInserted(Node **head, int x){
+	if((*head) == NULL || x > peek(*head)){
+		push(head, x);
+		return;
 	} else {
-		int temp = pop(&head);
-		head = sortedInserted(head, data);
-		head = push(head, temp);
+		int temp = pop(head);
+		sortedInserted(head, x);
+		push(head, temp);
 	}
-	return head;
 }
 
-Node *sortStack(Node *head){
-	
-	int data;
-	if(!isEmpty(head)){
-		data = pop(&head);
-		head = sortedInserted(head, data);
+void popAll(Node **head){
+	if(!isEmpty(*head)){
+		int x = pop(head);
+		popAll(head);
+		sortedInserted(head, x);
 	}
-	return head;
 }
 
-void printStack(Node *head) {
+void printStack(Node *head){
 	if(!isEmpty(head)){
-		while(head!= NULL){
+		while(head != NULL){
 			cout << head->data <<" ";
 			head = head->next;
 		}
+		cout << endl;
 	}
-	cout << endl;
 }
 
 int main(){
-	
-	Node *head = NULL;
 	int data;
+	Node *head = NULL;
 	
 	while(1){
 		cout << "\nEnter the data - ";
-		cin >>  data;
-		
+		cin >> data;
 		if(data == 0){
 			break;
 		} else {
-			head = push(head, data);
+			push(&head, data);
 		}
 	}
 	
 	printStack(head);
-	
-	head = sortStack(head);
+	popAll(&head);
 	printStack(head);
 	
 	return 0;
